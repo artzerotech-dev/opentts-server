@@ -1,11 +1,11 @@
-version: "3.8"
+FROM synesthesiam/opentts:latest
 
-services:
-  opentts:
-    image: synesthesiam/opentts:latest
-    container_name: opentts
-    ports:
-      - "5002:5002"
-    environment:
-      - LANGUAGES=en,sv
-      - DEFAULT_VOICE=en_vctk_low
+# Configure les langues
+ENV LANGUAGES="en,sv"
+ENV DEFAULT_VOICE="en_vctk_low"
+
+# Expose le port OpenTTS
+EXPOSE 5002
+
+# Commande de lancement
+CMD ["--host", "0.0.0.0", "--port", "5002"]
