@@ -1,11 +1,11 @@
 FROM synesthesiam/opentts:latest
 
-# Configure les langues
+# Config des langues
 ENV LANGUAGES="en,sv"
 ENV DEFAULT_VOICE="en_vctk_low"
 
-# Expose le port OpenTTS
+# Exposer le port interne
 EXPOSE 5002
 
-# Commande de lancement
-CMD ["--host", "0.0.0.0", "--port", "5002"]
+# Lancer OpenTTS correctement
+CMD ["opentts", "--host", "0.0.0.0", "--port", "5002"]
